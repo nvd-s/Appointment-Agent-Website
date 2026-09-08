@@ -3,8 +3,8 @@ import './App.css'
 
 function App() {
   const widgetConfig = {
-    agentId: import.meta.env.VITE_KALRAV_AGENT_ID || "agent_b57ebef13bc14ec9",
-    apiKey: import.meta.env.VITE_KALRAV_API_KEY || "VURGl7_oZ151XCLUcskHsMz2jxxE9rgTRH5iSb3Z-lA",
+    agentId: import.meta.env.VITE_KALRAV_AGENT_ID || undefined,
+    apiKey: import.meta.env.VITE_KALRAV_API_KEY || undefined,
     analyticsUserId: import.meta.env.VITE_KALRAV_ANALYTICS_USER_ID || undefined,
     primaryColor: '#167d73',
   }
