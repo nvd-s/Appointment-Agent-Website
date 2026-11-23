@@ -1,11 +1,23 @@
-import { KalravWidget } from '@irisidea/kalrav-ai/react'
+import { KalravWidget, type KalravConfig } from '@irisidea/kalrav-ai/react'
 import './App.css'
 
 function App() {
-  const widgetConfig = {
+  const widgetConfig: KalravConfig = {
     agentId: import.meta.env.VITE_KALRAV_AGENT_ID || undefined,
     apiKey: import.meta.env.VITE_KALRAV_API_KEY || undefined,
     analyticsUserId: import.meta.env.VITE_KALRAV_ANALYTICS_USER_ID || undefined,
+    chatApiBaseUrl: 'https://agent-api.kalrav.ai',
+    centralSystemBaseUrl: 'https://agent-api.kalrav.ai',
+    queryRequestMapper: ({ query, sessionId }) => ({
+      message: query,
+      session_id: sessionId,
+    }),
+    queryResponseMapper: (res) => ({
+      response: res.answer,
+      session_id: res.sessionId,
+      user_id: res.userId,
+      structured_data: res.structuredData,
+    }),
     primaryColor: '#167d73',
   }
 
